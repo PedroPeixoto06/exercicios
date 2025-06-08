@@ -1,0 +1,30 @@
+﻿using System;
+using System.Globalization;
+
+class URI
+{
+    static void Main(string[] args)
+    {
+        float a, b, c, delta;
+        double R1, R2;
+
+        string[] numeros = Console.ReadLine().Split(' ');
+        a = Convert.ToSingle(numeros[0], CultureInfo.InvariantCulture);
+        b = Convert.ToSingle(numeros[1], CultureInfo.InvariantCulture);
+        c = Convert.ToSingle(numeros[2], CultureInfo.InvariantCulture);
+
+        delta = (float)Math.Pow(b, 2.0) - 4 * a * c;
+
+        if (delta < 0 || a == 0)
+        {
+            Console.WriteLine("Impossivel calcular");
+            return;
+        }
+
+        R1 = (-b + Math.Sqrt(delta)) / (2 * a);
+        R2 = (-b - Math.Sqrt(delta)) / (2 * a);
+
+        Console.WriteLine("R1 = " + R1.ToString("F5", CultureInfo.InvariantCulture));
+        Console.WriteLine("R2 = " + R2.ToString("F5", CultureInfo.InvariantCulture));
+    }
+}
